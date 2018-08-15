@@ -425,12 +425,10 @@ class CoAuthors_Guest_Authors
 			// Remove the submitpost metabox because we have our own
 			remove_meta_box( 'submitdiv', $this->post_type, 'side' );
 			remove_meta_box( 'slugdiv', $this->post_type, 'normal' );
-			add_meta_box( 'coauthors-manage-guest-author-save', __( 'Save', 'co-authors-plus' ), array( $this, 'metabox_manage_guest_author_save' ), $this->post_type, 'side', 'default' );
-			add_meta_box( 'coauthors-manage-guest-author-slug', __( 'Unique Slug', 'co-authors-plus' ), array( $this, 'metabox_manage_guest_author_slug' ), $this->post_type, 'side', 'default' );
+			add_meta_box( 'coauthors-manage-guest-author-slug', __( 'Unique ID', 'co-authors-plus' ), array( $this, 'metabox_manage_guest_author_slug' ), $this->post_type, 'side', 'default' );
 			// Our metaboxes with co-author details
 			add_meta_box( 'coauthors-manage-guest-author-name', __( 'Name', 'co-authors-plus' ), array( $this, 'metabox_manage_guest_author_name' ), $this->post_type, 'normal', 'default' );
-			add_meta_box( 'coauthors-manage-guest-author-contact-info', __( 'Contact Info', 'co-authors-plus' ), array( $this, 'metabox_manage_guest_author_contact_info' ), $this->post_type, 'normal', 'default' );
-			add_meta_box( 'coauthors-manage-guest-author-bio', $this->labels['metabox_about'], array( $this, 'metabox_manage_guest_author_bio' ), $this->post_type, 'normal', 'default' );
+			add_meta_box( 'coauthors-manage-guest-author-save', __( 'Save', 'co-authors-plus' ), array( $this, 'metabox_manage_guest_author_save' ), $this->post_type, 'normal', 'default' );
 		}
 	}
 
@@ -996,59 +994,28 @@ class CoAuthors_Guest_Authors
 						'required' => true,
 					),
 				array(
-						'key'      => 'first_name',
-						'label'    => __( 'First Name', 'co-authors-plus' ),
-						'group'    => 'name',
-					),
-				array(
-						'key'      => 'last_name',
-						'label'    => __( 'Last Name', 'co-authors-plus' ),
-						'group'    => 'name',
-					),
-				array(
 						'key'      => 'user_login',
 						'label'    => __( 'Slug', 'co-authors-plus' ),
 						'group'    => 'slug',
 						'required' => true,
 					),
-				// Contact info
 				array(
-						'key'      => 'user_email',
-						'label'    => __( 'E-mail', 'co-authors-plus' ),
-						'group'    => 'contact-info',
-						'input'	   => 'email',
+						'key'      => 'class_year',
+						'label'    => __( 'Class of...', 'co-authors-plus' ),
+						'group'    => 'name',
+						'required' => false,
 					),
-				array(
-						'key'      => 'linked_account',
-						'label'    => __( 'Linked Account', 'co-authors-plus' ),
-						'group'    => 'slug',
+					array(
+						'key'      => 'role',
+						'label'    => __( 'Role', 'co-authors-plus' ),
+						'group'    => 'name',
+						'required' => true,
 					),
-				array(
-						'key'      => 'website',
-						'label'    => __( 'Website', 'co-authors-plus' ),
-						'group'    => 'contact-info',
-						'input'	   => 'url',
-					),
-				array(
-						'key'      => 'aim',
-						'label'    => __( 'AIM', 'co-authors-plus' ),
-						'group'    => 'contact-info',
-					),
-				array(
-						'key'      => 'yahooim',
-						'label'    => __( 'Yahoo IM', 'co-authors-plus' ),
-						'group'    => 'contact-info',
-					),
-				array(
-						'key'      => 'jabber',
-						'label'    => __( 'Jabber / Google Talk', 'co-authors-plus' ),
-						'group'    => 'contact-info',
-					),
-				array(
-						'key'      => 'description',
-						'label'    => __( 'Biographical Info', 'co-authors-plus' ),
-						'group'    => 'about',
-						'sanitize_function' => 'wp_filter_post_kses',
+					array(
+						'key'      => 'bonus_url',
+						'label'    => __( 'URL of Bonus Author Page (if applicable)', 'co-authors-plus' ),
+						'group'    => 'name',
+						'required' => false,
 					),
 			);
 		$fields_to_return = array();
