@@ -21,9 +21,6 @@ class CoAuthors_Guest_Authors
 	function __construct() {
 		global $coauthors_plus;
 
-		// Add the guest author management menu
-		add_action( 'admin_menu', array( $this, 'action_admin_menu' ) );
-
 		// WP List Table for breaking out our Guest Authors
 		require_once( dirname( __FILE__ ) . '/class-coauthors-wp-list-table.php' );
 
@@ -80,18 +77,18 @@ class CoAuthors_Guest_Authors
 
 		// Set up default labels, but allow themes to modify
 		$this->labels = apply_filters( 'coauthors_guest_author_labels', array(
-			'singular' => __( 'Guest Author', 'co-authors-plus' ),
-			'plural' => __( 'Guest Authors', 'co-authors-plus' ),
-			'all_items' => __( 'All Guest Authors', 'co-authors-plus' ),
-			'add_new_item' => __( 'Add New Guest Author', 'co-authors-plus' ),
-			'edit_item' => __( 'Edit Guest Author', 'co-authors-plus' ),
-			'new_item' => __( 'New Guest Author', 'co-authors-plus' ),
-			'view_item' => __( 'View Guest Author', 'co-authors-plus' ),
-			'search_items' => __( 'Search Guest Authors', 'co-authors-plus' ),
-			'not_found' => __( 'No guest authors found', 'co-authors-plus' ),
-			'not_found_in_trash' => __( 'No guest authors found in Trash', 'co-authors-plus' ),
-			'update_item' => __( 'Update Guest Author', 'co-authors-plus' ),
-			'metabox_about' => __( 'About the guest author', 'co-authors-plus' ),
+			'singular' => __( 'Staff Member', 'co-authors-plus' ),
+			'plural' => __( 'Staff Members', 'co-authors-plus' ),
+			'all_items' => __( 'All Staff Members', 'co-authors-plus' ),
+			'add_new_item' => __( 'Add New Staff Member', 'co-authors-plus' ),
+			'edit_item' => __( 'Edit Staff Member', 'co-authors-plus' ),
+			'new_item' => __( 'New Staff Member', 'co-authors-plus' ),
+			'view_item' => __( 'View Staff Member', 'co-authors-plus' ),
+			'search_items' => __( 'Search Staff Members', 'co-authors-plus' ),
+			'not_found' => __( 'No staff members found', 'co-authors-plus' ),
+			'not_found_in_trash' => __( 'No staff members found in Trash', 'co-authors-plus' ),
+			'update_item' => __( 'Update Staff Member', 'co-authors-plus' ),
+			'metabox_about' => __( 'About the Staff Member', 'co-authors-plus' ),
 			'featured_image' => __( 'Avatar', 'co-authors-plus' ),
 			'set_featured_image' => __( 'Set Avatar', 'co-authors-plus' ),
 			'use_featured_image' => __( 'Use Avatar', 'co-authors-plus' ),
@@ -121,7 +118,7 @@ class CoAuthors_Guest_Authors
 				'public' => true,
 				'publicly_queryable' => false,
 				'exclude_from_search' => true,
-				'show_in_menu' => false,
+				'show_in_menu' => true,
 				'supports' => array(
 						'thumbnail',
 					),
@@ -353,17 +350,6 @@ class CoAuthors_Guest_Authors
 		}
 
 		return $query;
-	}
-
-	/**
-	 * Add the admin menus for seeing all co-authors
-	 *
-	 * @since 3.0
-	 */
-	function action_admin_menu() {
-
-		add_submenu_page( $this->parent_page, $this->labels['plural'], $this->labels['plural'], $this->list_guest_authors_cap, 'view-guest-authors', array( $this, 'view_guest_authors_list' ) );
-
 	}
 
 	/**
