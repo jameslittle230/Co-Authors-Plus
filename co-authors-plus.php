@@ -52,7 +52,7 @@ class CoAuthors_Plus {
 
 	var $coreauthors_meta_box_name = 'authordiv';
 	var $coauthors_meta_box_name = 'coauthorsdiv';
-	var $force_guest_authors = false;
+	var $force_guest_authors = true;
 
 	var $_pages_whitelist = array( 'post.php', 'post-new.php', 'edit.php' );
 
