@@ -32,8 +32,6 @@ class CoAuthors_WP_List_Table extends WP_List_Table {
 		$hidden = array();
 		$sortable = array(
 				'display_name'       => array( 'display_name', 'ASC' ),
-				'first_name'         => array( 'first_name', 'ASC' ),
-				'last_name'          => array( 'last_name', 'ASC' ),
 			);
 		$_sortable = apply_filters( 'coauthors_guest_author_sortable_columns', $this->get_sortable_columns() );
 
@@ -149,10 +147,6 @@ class CoAuthors_WP_List_Table extends WP_List_Table {
 	function get_columns() {
 		$columns = array(
 				'display_name'   => __( 'Display Name', 'co-authors-plus' ),
-				'first_name'     => __( 'First Name', 'co-authors-plus' ),
-				'last_name'      => __( 'Last Name', 'co-authors-plus' ),
-				'user_email'     => __( 'E-mail', 'co-authors-plus' ),
-				'linked_account' => __( 'Linked Account', 'co-authors-plus' ),
 				'posts'          => __( 'Posts', 'co-authors-plus' ),
 			);
 
