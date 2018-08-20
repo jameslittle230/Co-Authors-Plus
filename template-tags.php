@@ -71,7 +71,7 @@ function is_coauthor_for_post( $user, $post_id = 0 ) {
 	}
 
 	foreach ( $coauthors as $coauthor ) {
-		if ( $user == $coauthor->user_login || $user == $coauthor->linked_account ) {
+		if ( $user == $coauthor->user_login ) {
 			return true;
 		}
 	}
