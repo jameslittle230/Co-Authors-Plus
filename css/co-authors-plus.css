@@ -8,7 +8,7 @@
 
 #coauthors-list {
 	width: 100%;
-	padding: 0 5px;
+	padding: 0;
 }
 	#coauthors-list td {
 		padding-left:0;
@@ -26,7 +26,6 @@
 			padding: 10px 3px 5px;
 			font-size: 13px;
 			color: #21759B;
-			border-bottom: 1px solid #21759B;
 			cursor: text;
 			float: left;
 		}
@@ -54,9 +53,9 @@
 			width: 25px;
 		}
 		#coauthors-list .coauthor-suggest {
-			margin: 5px 0;
+			margin: 0;
 			color: #888;
-			width: 200px;
+			width: 100%;
 			float: left;
 		}
 			#coauthors-list .coauthor-suggest:focus {

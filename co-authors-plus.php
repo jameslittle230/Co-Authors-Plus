@@ -51,7 +51,7 @@ class CoAuthors_Plus {
 	var $coauthor_taxonomy = 'author';
 
 	var $coreauthors_meta_box_name = 'authordiv';
-	var $coauthors_meta_box_name = 'coauthorsdiv';
+	var $coauthors_meta_box_name = 'coauthors_metabox';
 	var $force_guest_authors = true;
 
 	var $_pages_whitelist = array( 'post.php', 'post-new.php', 'edit.php' );
@@ -329,7 +329,7 @@ class CoAuthors_Plus {
 	public function add_coauthors_box() {
 
 		if ( $this->is_post_type_enabled() && $this->current_user_can_set_authors() ) {
-			add_meta_box( $this->coauthors_meta_box_name, apply_filters( 'coauthors_meta_box_title', __( 'Authors', 'co-authors-plus' ) ), array( $this, 'coauthors_meta_box' ), get_post_type(), apply_filters( 'coauthors_meta_box_context', 'normal' ), apply_filters( 'coauthors_meta_box_priority', 'high' ) );
+			add_meta_box( $this->coauthors_meta_box_name, apply_filters( 'coauthors_meta_box_title', __( 'Authors', 'co-authors-plus' ) ), array( $this, 'coauthors_meta_box' ), get_post_type(), apply_filters( 'coauthors_meta_box_context', 'side' ), apply_filters( 'coauthors_meta_box_priority', 'high' ) );
 		}
 	}
 
@@ -1177,7 +1177,7 @@ class CoAuthors_Plus {
 		if( empty( $authors ) ) echo apply_filters( 'coauthors_no_matching_authors_message', 'Sorry, no matching authors found.');
 
 		foreach ( $authors as $author ) {
-			echo esc_html( $author->ID . ' | ' . $author->user_login . ' | ' . $author->display_name . ' | ' . $author->user_email . ' | ' . rawurldecode( $author->user_nicename ) ) . "\n";
+			echo esc_html( $author->ID . ' | ' . $author->display_name . ' | ' . rawurldecode( $author->user_nicename ) ) . "\n";
 		}
 
 		die();

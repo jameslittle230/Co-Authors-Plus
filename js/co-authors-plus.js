@@ -163,6 +163,7 @@ jQuery( document ).ready(function () {
 
 		$co.attr({
 			'class': 'coauthor-suggest'
+			, 'type': 'text'
 			, 'name': inputName
 			})
 			.appendTo( $coauthors_div )
@@ -177,6 +178,7 @@ jQuery( document ).ready(function () {
 			$co.attr( 'value', decodeURIComponent( authorName ) );
 		else
 			$co.attr( 'value', coAuthorsPlusStrings.search_box_text )
+				.attr( 'type', 'text' )
 				.focus( function(){ $co.val( '' ) } )
 				.blur( function(){ $co.val( coAuthorsPlusStrings.search_box_text ) } )
 				;
@@ -192,15 +194,10 @@ jQuery( document ).ready(function () {
 
 		var author = {}
 		author.id = jQuery.trim( vals[0] );
-		author.login = jQuery.trim( vals[1] );
-		author.name = jQuery.trim( vals[2] );
-		author.email = jQuery.trim( vals[3] );
-		if( author.avatar !== '' ){
-			author.avatar = jQuery.trim( vals[5] );
-		}
+		author.name = jQuery.trim( vals[1] );
 
 		// Decode user-nicename if it has special characters in it.
-		author.nicename = decodeURIComponent( jQuery.trim( vals[4] ) );
+		author.nicename = decodeURIComponent( jQuery.trim( vals[2] ) );
 
 		if ( author.id=='New' ) {
 			coauthors_new_author_display( name );
@@ -358,7 +355,6 @@ jQuery( document ).ready(function () {
 		var $post_coauthor_names = jQuery( 'input[name="coauthorsinput[]"]' );
 		var $post_coauthor_emails = jQuery( 'input[name="coauthorsemails[]"]' );
 		var $post_coauthor_nicenames = jQuery( 'input[name="coauthorsnicenames[]"]' );
-		var $post_coauthoravatars = jQuery( 'input[name="coauthorsavatars[]"]' );
 
 		var post_coauthors = [];
 
@@ -368,7 +364,6 @@ jQuery( document ).ready(function () {
 				name: $post_coauthor_names[i].value,
 				email: $post_coauthor_emails[i].value,
 				nicename: $post_coauthor_nicenames[i].value,
-				avatar: $post_coauthoravatars[i].value,
 			});
 		}
 
