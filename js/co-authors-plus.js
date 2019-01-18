@@ -173,7 +173,7 @@ jQuery( document ).ready(function () {
 			.appendTo( $coauthors_div )
 			.suggest( coAuthorsPlus_ajax_suggest_link, {
 				onSelect: coauthors_autosuggest_select,
-				delay: 1000
+				delay: 50
 			})
 			.keydown( coauthors_autosuggest_keydown )
 			;
