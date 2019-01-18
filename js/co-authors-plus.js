@@ -49,9 +49,7 @@ jQuery( document ).ready(function () {
 		// get sibling <span> and update
 		co.siblings( '.coauthor-tag' )
 			.html( author.name )
-			.append( coauthors_create_author_gravatar( author ) )
-			.show()
-			;
+			.show();
 
 		// Update the value of the hidden input
 		co.siblings( 'input[name="coauthors[]"]' ).val( author.nicename );
@@ -82,9 +80,6 @@ jQuery( document ).ready(function () {
 			if ( ! co ) var co = coauthors_create_autosuggest( author.name, coName )
 			var tag = coauthors_create_author_tag( author );
 			var input = coauthors_create_author_hidden_input( author );
-			var $gravatar = coauthors_create_author_gravatar( author );
-
-			tag.append( $gravatar );
 
 			coauthors_add_to_table( co, tag, input, options );
 
@@ -252,16 +247,6 @@ jQuery( document ).ready(function () {
 							// Add Click event to edit
 							.click( coauthors_edit_onclick );
 		return $tag;
-	}
-
-	function coauthors_create_author_gravatar( author ) {
-
-		var $gravatar = jQuery( '<img/>' )
-							.attr( 'alt', author.name )
-							.attr( 'src', author.avatar )
-							.addClass( 'coauthor-gravatar' )
-							;
-		return $gravatar;
 	}
 
 	/*
